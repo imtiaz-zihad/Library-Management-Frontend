@@ -1,69 +1,138 @@
-# React + TypeScript + Vite
+# 📚 Library Management System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, React-based web application for managing a library's collection. Users can add, edit, delete, and borrow books, as well as view borrowing summaries — all built with TypeScript, Redux Toolkit, TailwindCSS, and Vite.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 📘 Introduction
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+This project allows for efficient tracking and management of books in a library or personal collection. It includes a user-friendly interface to handle books and borrowing operations with validation, availability checks, and real-time updates.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## ✨ Features
+
+* **Book List Table**: View all books with key details like title, author, genre, and availability.
+* **Add Book**: Create new book entries with validations.
+* **Edit Book**: Update book details using a pre-filled form.
+* **Delete Book**: Remove a book with confirmation.
+* **Borrow Book**: Borrow books with due dates and quantity tracking.
+* **Borrow Summary**: Aggregated view of borrowed books and their quantities.
+* **Real-time Updates**: UI reflects state changes instantly after any CRUD operation.
+* Built with Radix UI, Redux Toolkit, TailwindCSS, and TypeScript.
+
+---
+
+## 💾 Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/istiak19/Library-Management-frontend
+cd Library-Management-frontend
+
+# Install dependencies
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🚀 Usage
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+# Start development server
+npm run dev
+
+# Build the project
+npm run build
+
+# Preview the production build
+npm run preview
+
+# Lint the code
+npm run lint
 ```
+
+---
+
+## 🌐 Pages & Routes
+
+| Route             | Description                                                            |
+| ----------------- | ---------------------------------------------------------------------- |
+| `/books`          | Main page showing all books in a table with edit/delete/borrow options |
+| `/create-book`    | Form to add a new book                                                 |
+| `/books/:id`      | Detailed view of a selected book                                       |
+| `/edit-book/:id`  | Form to update book details                                            |
+| `/borrow/:bookId` | Borrow form for the selected book                                      |
+| `/borrow-summary` | Summary table of borrowed books                                        |
+
+---
+
+## ⚙️ Configuration
+
+No special environment configuration is required for running the app locally. However, you may include `.env` files for API base URLs or keys if needed in production.
+
+---
+
+## 📦 Dependencies
+
+### Runtime
+
+* `react`, `react-dom` – UI framework
+* `@reduxjs/toolkit`, `react-redux` – State management
+* `@radix-ui/react-*` – UI primitives
+* `react-hook-form` – Form handling
+* `date-fns` – Date utilities
+* `tailwindcss`, `daisyui` – Styling
+* `sweetalert2` – Confirmation dialogs
+* `react-router` – Routing
+
+### Development
+
+* `vite` – Fast dev/build tool
+* `typescript` – Static typing
+* `eslint` – Linting
+* `@vitejs/plugin-react` – React support for Vite
+
+---
+
+## 🔁 Development Scripts
+
+```json
+"scripts": {
+  "dev": "vite",
+  "build": "tsc -b && vite build",
+  "lint": "eslint .",
+  "preview": "vite preview"
+}
+```
+
+---
+
+## 🧪 Examples
+
+* **Adding a Book**:
+
+  * Go to `/create-book`
+  * Fill in: title, author, genre, ISBN, description, copies
+  * Submit and view in the `/books` list
+
+* **Borrowing a Book**:
+
+  * Click *Borrow* next to a book
+  * Enter quantity and due date
+  * Submit and view in `/borrow-summary`
+
+---
+
+## 🐞 Troubleshooting
+
+|
+## 👥 Contributors
+
+Feel free to add your name here!
+
+* [Imtiaz Hossen](https://github.com/imtiaz-zihad) – Creator
