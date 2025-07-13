@@ -4,7 +4,11 @@ A modern, React-based web application for managing a library's collection. Users
 
 ---
 
+# Related  Links
 
+* [Backend Repository](https://github.com/imtiaz-zihad/Library-Management-Api)
+*  [Backend link](https://libary-management-system-ten.vercel.app)
+*  [Live link](https://library-management-frontend-site.vercel.app)
 
 ---
 
