@@ -1,194 +1,142 @@
-# 📚 Library Management API
+# 📚 Library Management System
 
-A simple and scalable RESTful API for managing library books and borrowing operations. Built with **Node.js**, **TypeScript**, **Express**, and **MongoDB** using **Mongoose**.
+A modern, React-based web application for managing a library's collection. Users can add, edit, delete, and borrow books, as well as view borrowing summaries — all built with TypeScript, Redux Toolkit, TailwindCSS, and Vite.
 
 ---
-# Related Links
-* [Frontend Repository](https://github.com/imtiaz-zihad/Library-Management-Frontend)
-*  [Frontend link](https://library-management-frontend-site.vercel.app)
-*  [Live link](https://libary-management-system-ten.vercel.app)
 
-## 📌 Introduction
+# Related  Links
 
-This project is a backend system built with **Express** and **TypeScript** to manage library operations such as:
+* [Backend Repository](https://github.com/imtiaz-zihad/Library-Management-Api)
+*  [Backend link](https://libary-management-system-ten.vercel.app)
+*  [Live link](https://library-management-frontend-site.vercel.app)
 
-- Book management  
-- User registration  
-- Borrowing summary and logs  
-- Admin functionalities
+---
 
-MongoDB is used for persistent storage, and Mongoose handles object modeling.
+## 📘 Introduction
+
+This project allows for efficient tracking and management of books in a library or personal collection. It includes a user-friendly interface to handle books and borrowing operations with validation, availability checks, and real-time updates.
 
 ---
 
 ## ✨ Features
 
-- 📦 Express.js server with modular TypeScript structure
-- 🌱 MongoDB integration via Mongoose ODM
-- 🔐 Role-based access (Admin, Member)
-- 📊 Borrow summary with aggregation pipeline
-- 🧪 Schema validation (Zod or Joi)
-- 🔁 Hot-reloading using `ts-node-dev`
-- 🧹 Linting with ESLint & TypeScript rules
-- 📤 Clean project structure with reusable services
+* **Book List Table**: View all books with key details like title, author, genre, and availability.
+* **Add Book**: Create new book entries with validations.
+* **Edit Book**: Update book details using a pre-filled form.
+* **Delete Book**: Remove a book with confirmation.
+* **Borrow Book**: Borrow books with due dates and quantity tracking.
+* **Borrow Summary**: Aggregated view of borrowed books and their quantities.
+* **Real-time Updates**: UI reflects state changes instantly after any CRUD operation.
+* Built with Radix UI, Redux Toolkit, TailwindCSS, and TypeScript.
 
 ---
 
-## 🛠️ Installation
-
-1. **Clone the repository**
+## 💾 Installation
 
 ```bash
-git clone https://github.com/imtiaz-zihad/Library-Management-Api.git
-cd Library-Management-Api
-```
+# Clone the repository
+git clone https://github.com/istiak19/Library-Management-frontend
+cd Library-Management-frontend
 
-2. **Install dependencies**
-
-```bash
+# Install dependencies
 npm install
 ```
-
-3. **Create environment variables**
-
-Create a `.env` file in the root directory:
-
-```env
-PORT=5000
-DATABASE_URL=mongodb://localhost:27017/libraryDB
-JWT_SECRET=your_jwt_secret
-```
-
-⚠️ **Do not commit `.env` files to version control.**
 
 ---
 
 ## 🚀 Usage
 
-Run in development mode:
-
 ```bash
+# Start development server
 npm run dev
-```
 
-After running, the server will be available at:  
-📍 `http://localhost:5000`
-
-To build and run for production:
-
-```bash
+# Build the project
 npm run build
-npm start
+
+# Preview the production build
+npm run preview
+
+# Lint the code
+npm run lint
 ```
+
+---
+
+## 🌐 Pages & Routes
+
+| Route             | Description                                                            |
+| ----------------- | ---------------------------------------------------------------------- |
+| `/books`          | Main page showing all books in a table with edit/delete/borrow options |
+| `/create-book`    | Form to add a new book                                                 |
+| `/books/:id`      | Detailed view of a selected book                                       |
+| `/edit-book/:id`  | Form to update book details                                            |
+| `/borrow/:bookId` | Borrow form for the selected book                                      |
+| `/borrow-summary` | Summary table of borrowed books                                        |
 
 ---
 
 ## ⚙️ Configuration
 
-| Variable      | Description                        |
-|---------------|------------------------------------|
-| `PORT`        | Port the server runs on            |
-| `DATABASE_URL`| MongoDB connection string          |
-| `JWT_SECRET`  | Secret for JWT signing             |
-
----
-
-## 🗂️ Project Structure
-
-```
-Library-Management-Api/
-├── src/
-│   ├── app/              # Core modules (books, users, borrow)
-│   ├── middlewares/
-│   ├── routes/
-│   └── utils/
-├── config/
-├── server.ts             # App entry point
-├── .env
-├── package.json
-├── tsconfig.json
-└── README.md
-```
-
----
-
-## 📜 Scripts
-
-| Command            | Description                          |
-|--------------------|--------------------------------------|
-| `npm run dev`      | Run development server (hot reload)  |
-| `npm run build`    | Compile TypeScript to JavaScript     |
-| `npm start`        | Run compiled app in production       |
-| `npm run lint`     | Check linting issues                 |
-| `npm run lint:fix` | Auto-fix lint issues                 |
+No special environment configuration is required for running the app locally. However, you may include `.env` files for API base URLs or keys if needed in production.
 
 ---
 
 ## 📦 Dependencies
 
 ### Runtime
-- `express` – Web framework  
-- `mongoose` – MongoDB ORM  
-- `dotenv` – Environment variable support  
 
-### Dev
-- `typescript` – TypeScript language support  
-- `ts-node-dev` – Hot reload for development  
-- `eslint` + `@typescript-eslint` – Linting  
-- `@types/express` – Type definitions  
+* `react`, `react-dom` – UI framework
+* `@reduxjs/toolkit`, `react-redux` – State management
+* `@radix-ui/react-*` – UI primitives
+* `react-hook-form` – Form handling
+* `date-fns` – Date utilities
+* `tailwindcss`, `daisyui` – Styling
+* `sweetalert2` – Confirmation dialogs
+* `react-router` – Routing
+
+### Development
+
+* `vite` – Fast dev/build tool
+* `typescript` – Static typing
+* `eslint` – Linting
+* `@vitejs/plugin-react` – React support for Vite
 
 ---
 
-## 📡 API Endpoints
-
-| Method | Endpoint         | Description                 |
-|--------|------------------|-----------------------------|
-| GET    | /api/books       | List all books              |
-| POST   | /api/books       | Add a new book              |
-| GET    | /api/books/:id   | Get a specific book         |
-| PATCH  | /api/books/:id   | Update a book               |
-| DELETE | /api/books/:id   | Delete a book               |
-| GET    | /api/borrow      | Get borrow summary (agg)    |
-| POST   | /api/borrow      | Borrow a book               |
-
-### ✅ Borrow Summary Response
+## 🔁 Development Scripts
 
 ```json
-{
-  "success": true,
-  "message": "Borrowed books summary retrieved successfully",
-  "data": [
-    {
-      "book": {
-        "title": "1984",
-        "isbn": "9780451524935"
-      },
-      "totalQuantity": 3
-    }
-  ]
+"scripts": {
+  "dev": "vite",
+  "build": "tsc -b && vite build",
+  "lint": "eslint .",
+  "preview": "vite preview"
 }
 ```
 
 ---
 
-## 🧩 Troubleshooting
+## 🧪 Examples
 
-| Issue                     | Solution                                          |
-|---------------------------|---------------------------------------------------|
-| MongoDB connection failed | Ensure `DATABASE_URL` is correct and IP is whitelisted |
-| Port already in use       | Change `PORT` in `.env`                           |
-| TypeScript errors         | Check type definitions and interfaces             |
+* **Adding a Book**:
+
+  * Go to `/create-book`
+  * Fill in: title, author, genre, ISBN, description, copies
+  * Submit and view in the `/books` list
+
+* **Borrowing a Book**:
+
+  * Click *Borrow* next to a book
+  * Enter quantity and due date
+  * Submit and view in `/borrow-summary`
 
 ---
 
+## 🐞 Troubleshooting
+
+|
 ## 👥 Contributors
 
-- **Imtiaz Zihad** – [@imtiaz-zihad](https://github.com/imtiaz-zihad)
+Feel free to add your name here!
 
----
-
-## 🪪 License
-
-Licensed under the **MIT License**.
-
----
+* [Imtiaz Hossen](https://github.com/imtiaz-zihad) – Creator
