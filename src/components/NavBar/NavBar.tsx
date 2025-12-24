@@ -1,10 +1,8 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
-
 const NavBar = () => {
-
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinkStyle = ({ isActive }: { isActive: boolean }) =>
     isActive
@@ -13,32 +11,49 @@ const NavBar = () => {
 
   const links = (
     <>
-      <li><NavLink to="/" className={navLinkStyle}>Home</NavLink></li>
-      <li><NavLink to="/books" className={navLinkStyle}>All Books</NavLink></li>
-      <li><NavLink to="/create-book" className={navLinkStyle}>Add Book</NavLink></li>
-      <li><NavLink to="/borrow-summary" className={navLinkStyle}>Borrow Summary</NavLink></li>
+      <li>
+        <NavLink to="/" className={navLinkStyle}>
+          Home
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/books" className={navLinkStyle}>
+          All Books
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/create-book" className={navLinkStyle}>
+          Add Book
+        </NavLink>
+      </li>
+      <li>
+        <NavLink to="/borrow-summary" className={navLinkStyle}>
+          Borrow Summary
+        </NavLink>
+      </li>
     </>
   );
 
   return (
-     <nav className="bg-base-100 shadow-md sticky top-0 z-50">
+    <nav className="bg-white shadow-md sticky top-0 z-50">
       <div className="w-11/12 mx-auto px-2 sm:px-4 lg:px-6">
         <div className="flex justify-between h-16 items-center">
           {/* Logo */}
           <NavLink to="/" className="flex items-center gap-2">
-            
             <span className="text-orange-500 font-bold text-xl">BookCafe</span>
           </NavLink>
 
           {/* Desktop Menu*/}
           <div className="hidden lg:flex items-center space-x-6">
             <ul className="flex space-x-6 items-center">{links}</ul>
-            
           </div>
 
           {/* Mobile Menu Button */}
           <div className="lg:hidden">
-            <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="btn btn-ghost">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="btn btn-ghost"
+            >
               <svg
                 className="w-6 h-6"
                 fill="none"
@@ -47,9 +62,19 @@ const NavBar = () => {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 {isMenuOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
                 )}
               </svg>
             </button>
@@ -59,8 +84,10 @@ const NavBar = () => {
 
       {/* Mobile Menu Dropdown */}
       {isMenuOpen && (
-        <div className="lg:hidden bg-base-100 shadow-md">
-          <ul className="flex flex-col space-y-2 px-4 py-4 border-t">{links}</ul>
+        <div className="lg:hidden bg-white shadow-md">
+          <ul className="flex flex-col space-y-2 px-4 py-4 border-t">
+            {links}
+          </ul>
           <div className="px-4 pb-4">
             <button className="btn btn-primary w-full">Login</button>
           </div>
